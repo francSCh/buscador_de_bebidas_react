@@ -17,7 +17,7 @@ const Formulario = () => {
         e.preventDefault();
 
         if(Object.values(busqueda).includes('')) {
-            setAlerta('Todos los Campos son obligatorios');
+            setAlerta('All fields are required');
             return;
         }
 
@@ -34,9 +34,9 @@ const Formulario = () => {
                 <Row>
                     <Col md={6}>
                         <Form.Group className='mb-3'>
-                            <Form.Label htmlFor='nombre'>Nombre Bebida</Form.Label>
+                            <Form.Label htmlFor='nombre'>Name</Form.Label>
 
-                            <Form.Control id='nombre' type='text' placeholder='Ej: Tequila, Vodka, etc.' name='nombre'  value={busqueda.nombre} onChange={e => setBusqueda({ 
+                            <Form.Control id='nombre' type='text' placeholder='Tequila, Vodka, etc.' name='nombre'  value={busqueda.nombre} onChange={e => setBusqueda({ 
                                 ...busqueda, 
                                 [e.target.name] : e.target.value })}/>
                         </Form.Group>
@@ -44,14 +44,14 @@ const Formulario = () => {
                     </Col>
                     <Col md={6}>
                         <Form.Group className='mb-3'>
-                            <Form.Label htmlFor='categoria'>Categoría Bebida</Form.Label>
+                            <Form.Label htmlFor='categoria'>Category</Form.Label>
 
                             <Form.Select id='categoria' name='categoria' value={busqueda.categoria} 
                             onChange={e => setBusqueda({ 
                                 ...busqueda, 
                                 [e.target.name] : e.target.value })}>
                                     
-                                <option>- Selecciona Categoría -</option>
+                                <option>- Select a Category -</option>
                                 {categorias.map(categoria => (
                                     <option key={categoria.strCategory} value={categoria.strCategory}>
                                         {categoria.strCategory}
@@ -65,7 +65,7 @@ const Formulario = () => {
                 <Row className='justify-content-end'>
                     <Col md={3}>
                         <Button variant='danger' className='text-uppercase w-100' type='submit'>
-                            Buscar Bebidas
+                            Search
                         </Button>
                     </Col>
                 </Row>
